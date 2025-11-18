@@ -22,4 +22,9 @@ public class TransactionService {
         transactions.add(transaction);
         log.debug("Transação registrada: valor={} dataHora={}", transaction.getValor(), transaction.getDataHora());
     }
+
+    public void clearTransactions() {
+        transactions.clear();
+        log.info("Fila de transações limpa");
+    }
 }
