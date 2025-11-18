@@ -115,14 +115,14 @@ O `Dockerfile` usa build multi-stage e Java 21; passe variáveis via `-e` se pre
 
 ---
 
-## Dicas para enviar ao GitHub (requisitos do desafio)
+## Dicas para publicar (requisitos do desafio)
 
-- Crie um repositório público e faça commits claros: sugerimos pelo menos 1 commit por endpoint (mínimo de 3 commits).
+- Crie um repositório público e mantenha commits claros (pelo menos um por endpoint).
 - Não faça fork de projetos existentes.
-- Remova arquivos gerados localmente antes de publicar: `./mvnw.cmd clean`.
+- Execute `./mvnw.cmd clean` antes de subir para garantir que o repositório contenha apenas código fonte e documentação.
 
-Se quiser, eu posso: inicializar um repositório `git`, gerar uma sequência sugerida de commits (um por endpoint) e deixar tudo pronto para enviar ao GitHub.
+## Próximos passos opcionais
 
----
-
-Se desejar alguma seção visual adicional (badges, GIF curto demonstrando a API, ou uma coleção OpenAPI/Swagger), me diga e eu acrescento.
+- Adicionar badges (build/test), gravações curtas usando Postman/cURL ou documentação OpenAPI/Swagger.
+- Configurar pipeline CI (GitHub Actions) para rodar testes automaticamente a cada push.
+- Publicar a imagem Docker em um registry e, se necessário, subir a aplicação em um provedor cloud.
