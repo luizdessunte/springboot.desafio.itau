@@ -1,4 +1,4 @@
-# Desafio Itaú — Backend (PT-BR)
+# Desafio Itaú — Backend 
 
 Projeto simples em Spring Boot que recebe transações em memória e expõe estatísticas calculadas sobre os últimos N segundos.
 
