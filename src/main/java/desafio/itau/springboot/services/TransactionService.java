@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import desafio.itau.springboot.config.StatisticsProperties;
 import desafio.itau.springboot.model.Transaction;
 
 @Service
@@ -18,9 +19,11 @@ public class TransactionService {
     private static final Logger log = LoggerFactory.getLogger(TransactionService.class);
     private final Queue<Transaction> transactions = new ConcurrentLinkedQueue<>();
     private final Clock clock;
+    private final StatisticsProperties properties;
 
-    public TransactionService(Clock clock) {
+    public TransactionService(Clock clock, StatisticsProperties properties) {
         this.clock = clock;
+        this.properties = properties;
     }
 
     public void addTransaction(Transaction transaction) {
@@ -35,7 +38,7 @@ public class TransactionService {
 
     public DoubleSummaryStatistics getStatistics() {
         OffsetDateTime now = OffsetDateTime.now(clock);
-        OffsetDateTime cutoff = now.minusSeconds(getWindowSeconds());
+        OffsetDateTime cutoff = now.minusSeconds(properties.getWindowSeconds());
 
         transactions.removeIf(t -> t.getDataHora().isBefore(cutoff));
 
@@ -48,6 +51,6 @@ public class TransactionService {
     }
 
     public long getWindowSeconds() {
-        return 60;
+        return properties.getWindowSeconds();
     }
 }
