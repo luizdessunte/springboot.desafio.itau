@@ -1,5 +1,3 @@
---
-
 # Desafio Itaú — Backend (PT-BR)
 
 Projeto simples em Spring Boot que recebe transações em memória e expõe estatísticas calculadas sobre os últimos N segundos.
@@ -36,12 +34,14 @@ A API ficará disponível em `http://localhost:8080`.
 - POST `/transacao`
 
   - Corpo (JSON):
+
     ```json
     {
       "valor": 123.45,
       "dataHora": "2024-04-14T21:23:00.789-03:00"
     }
     ```
+
   - Respostas:
     - `201 Created` — transação aceita (inclui `valor == 0`).
     - `422 Unprocessable Entity` — valores inválidos (ex.: valor negativo, data no futuro).
