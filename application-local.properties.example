@@ -1,0 +1,6 @@
+# Copy this file to application-local.properties and keep it out of version control.
+# Use it for secrets such as database credentials or API keys.
+# Example placeholders:
+# spring.datasource.url=jdbc:postgresql://localhost:5432/transactions
+# spring.datasource.username=dev_user
+# spring.datasource.password=change-me
